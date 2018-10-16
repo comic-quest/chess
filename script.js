@@ -126,7 +126,7 @@ function loadUpdate(){
 }
 
 function loaded(){
-    console.log("all loaded")
+    
     
     loadingState.innerHTML="Haz click para empezar."
     
