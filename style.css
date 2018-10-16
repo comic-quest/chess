@@ -1,0 +1,55 @@
+body{
+    margin:0px;
+position:relative;
+    background-color:transparent;
+}
+
+
+#flash{
+    width: 500px;
+    height:700px;
+-webkit-border-radius: 10px; 
+-moz-border-radius: 10px;
+border-radius: 10px; 
+overflow: hidden;
+
+}
+
+#canvas{
+    position:absolute;
+    top:0;
+    left:0;
+   
+}
+
+#container{
+    position:relative
+        margin:0px;
+    padding:0px;
+
+    
+}
+
+#percentage{
+    font-size:40px;
+    position:absolute;
+        top:120px;
+    width:500px;
+    left:0px;
+    text-align:center;
+    color:white;
+    
+    
+}
+
+#loadState{
+    font-size:40px;
+    position:absolute;
+        top:40px;
+    width:500px;
+    left:0px;
+    text-align:center;
+    color:white;
+    
+    
+}
