@@ -47,7 +47,11 @@ var fondo2;
 
 var fuego;
 
-var fuego;
+var altavoz;
+
+var volumen = 1;
+
+var imgAltavoz = 4;
 
 function loadImageRes(name,src){
 
@@ -133,7 +137,61 @@ function loaded(){
     percentage.innerHTML="";
     
     container.onclick=function(e){
-        container.onclick=function(){}
+        container.onclick=function(e){
+            if(e.pageX>canvas.width-70&&e.pageX<canvas.width&&e.pageY>0&&e.pageY<60){
+                
+                switch(imgAltavoz){
+                        
+                    case 1: 
+                        
+                        altavoz.img=imgs.altavoz4;
+                        volumen=1;
+                        audios.music.volume=volumen;
+                        imgAltavoz=4;
+                        
+                        break;
+                        
+                    case 2:
+                        altavoz.img=imgs.altavoz1;
+                        volumen=0;
+                        audios.music.volume=volumen;
+                        imgAltavoz=1;
+                        
+                        break;
+                        
+                        case 3:
+                        altavoz.img=imgs.altavoz2;
+                        volumen=0.33;
+                        audios.music.volume=volumen;
+                        imgAltavoz=2;
+                        
+                        break;
+                        
+                        case 4:
+                        altavoz.img=imgs.altavoz3;
+                        volumen=0.66;
+                        audios.music.volume=volumen;
+                        imgAltavoz=3;
+                        
+                        break;
+                                 }
+                   
+                   
+                   
+               
+               }
+            
+        }
+        
+        container.onmousemove=function(e){
+            if(e.pageX>canvas.width-70&&e.pageX<canvas.width&&e.pageY>0&&e.pageY<60){
+                document.body.style.cursor="pointer";
+                
+            
+        }else{
+            document.body.style.cursor="default";
+        }
+        }
         fuegoFrames=[imgs.fuego1,imgs.fuego2]
         
         loadingState.innerHTML="";
@@ -145,6 +203,7 @@ function loaded(){
         fondo2= new Sprite(imgs.fondo2,0,0);
         nightstuck= new Sprite(imgs.nightstuck,0,0);
         fuego =new Sprite(imgs.fuego1,0,0);
+        altavoz=new Sprite(imgs.altavoz4,0,0);
         
         requestAnimationFrame(main);
         
@@ -175,6 +234,8 @@ function main(){
     ctx.drawImage(fondo2.img,fondo2.x,fondo2.y);
     ctx.drawImage(fondo1.img,fondo1.x,fondo1.y);
     
+    ctx.drawImage(altavoz.img,0,0);
+    
     
 }
 
@@ -197,6 +258,14 @@ loadImageRes("fuego1","fuego1.png");
 loadImageRes("fuego2","fuego2.png");
 
 loadImageRes("nightstuck","nightstuck.png");
+    
+loadImageRes("altavoz1","altavoz1.png");
+    
+loadImageRes("altavoz2","altavoz2.png");
+    
+loadImageRes("altavoz3","altavoz3.png");
+    
+loadImageRes("altavoz4","altavoz4.png");
 
 loadAudioRes("music","https://comic-quest.github.io/chess/bye-home2.mp3")
 
