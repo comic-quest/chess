@@ -180,7 +180,8 @@ function main(){
 
 imgs.blur=new Image();
 imgs.blur.onload=function(){
-    
+    ctx.fillStyle="#00002d";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
    ctx.drawImage(imgs.blur,0,0);
     
 imgsLoaded++
@@ -217,7 +218,7 @@ function Sprite(img,x,y){
 }
 
 
-imgs.blur.src="nightstuckblur.png"
+imgs.blur.src="nightstuckload.png"
 
     
     
