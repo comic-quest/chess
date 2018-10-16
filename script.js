@@ -133,6 +133,7 @@ function loaded(){
     percentage.innerHTML="";
     
     container.onclick=function(e){
+        container.onclick=function(){}
         fuegoFrames=[imgs.fuego1,imgs.fuego2]
         
         loadingState.innerHTML="";
