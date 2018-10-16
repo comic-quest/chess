@@ -6,7 +6,6 @@ var ctx = canvas.getContext("2d");
 
 
 
-
 var percentage = document.getElementById("percentage")
 
 var loadingState = document.getElementById("loadState");
