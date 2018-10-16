@@ -1,8 +1,13 @@
+var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
+var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
 var container=document.getElementById("flash-container")
 var canvas = document.getElementById("flash");
 var ctx = canvas.getContext("2d");
+
+
 
 
 
@@ -20,7 +25,7 @@ var imgs = {};
 
 var audios = {};
 
-
+var fuegoFrames;
 
 var audioTotal = 0;
 
@@ -29,6 +34,20 @@ var audioLoaded = 0;
 var imgsLoaded = 0;
 
 var imgsTotal=0;
+
+var fondo1;
+
+var fondo2;
+
+var nightstuck;
+
+var fondo1;
+
+var fondo2;
+
+var fuego;
+
+var fuego;
 
 function loadImageRes(name,src){
 
@@ -114,15 +133,46 @@ function loaded(){
     percentage.innerHTML="";
     
     container.onclick=function(e){
+        fuegoFrames=[imgs.fuego1,imgs.fuego2]
+        
         loadingState.innerHTML="";
-        ctx.drawImage(imgs.nightstuck,0,0);
-        ctx.drawImage(imgs.fuego1,0,0);
-        ctx.drawImage(imgs.fondo2,0,0);
-        ctx.drawImage(imgs.fondo1,0,0);
+
         
         audios.music.play();
+        
+        fondo1= new Sprite(imgs.fondo1,0,0);
+        fondo2= new Sprite(imgs.fondo2,75,0);
+        nightstuck= new Sprite(imgs.nightstuck,0,0);
+        fuego =new Sprite(imgs.fuego1,50,0);
+        
+        requestAnimationFrame(main);
+        
+        setInterval(function(){
+            fuego.img=fuegoFrames[Math.floor((Math.random()*2))]
+            
+        },1000);
+        
+        fondo1.tween= TweenLite.to(fondo1, 20, { ease: Power3.easeOut, x: -300 });
+        fondo2.tween= TweenLite.to(fondo2, 20, { ease: Power3.easeOut, x: 0 });
+        fuego.tween= TweenLite.to(fuego, 20, { ease: Power3.easeOut, x: 0 });
+        
+        
     }
     
+    
+    
+}
+
+function main(){
+    
+    requestAnimationFrame(main);
+    console.log(nightstuck)
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    
+    ctx.drawImage(nightstuck.img,nightstuck.x,nightstuck.y);
+    ctx.drawImage(fuego.img,fuego.x,fuego.y);
+    ctx.drawImage(fondo2.img,fondo2.x,fondo2.y);
+    ctx.drawImage(fondo1.img,fondo1.x,fondo1.y);
     
     
 }
@@ -156,6 +206,15 @@ loadAudioRes("music","https://comic-quest.github.io/chess/bye-home2.mp3")
        imgsTotal+=Object.keys(imgs).length;
     
 }
+
+function Sprite(img,x,y){
+    
+    this.img = img;
+    this.x=x;
+    this.y=y;
+    
+}
+
 
 imgs.blur.src="nightstuckblur.png"
 
