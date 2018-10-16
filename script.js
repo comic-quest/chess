@@ -141,10 +141,10 @@ function loaded(){
         
         audios.music.play();
         
-        fondo1= new Sprite(imgs.fondo1,0,0);
-        fondo2= new Sprite(imgs.fondo2,75,0);
+        fondo1= new Sprite(imgs.fondo1,-200,0);
+        fondo2= new Sprite(imgs.fondo2,-75,0);
         nightstuck= new Sprite(imgs.nightstuck,0,0);
-        fuego =new Sprite(imgs.fuego1,50,0);
+        fuego =new Sprite(imgs.fuego1,-50,0);
         
         requestAnimationFrame(main);
         
@@ -153,7 +153,7 @@ function loaded(){
             
         },1000);
         
-        fondo1.tween= TweenLite.to(fondo1, 20, { ease: Power3.easeOut, x: -300 });
+        fondo1.tween= TweenLite.to(fondo1, 20, { ease: Power3.easeOut, x: 0 });
         fondo2.tween= TweenLite.to(fondo2, 20, { ease: Power3.easeOut, x: 0 });
         fuego.tween= TweenLite.to(fuego, 20, { ease: Power3.easeOut, x: 0 });
         
@@ -167,7 +167,7 @@ function loaded(){
 function main(){
     
     requestAnimationFrame(main);
-    console.log(nightstuck)
+   
     ctx.clearRect(0,0,canvas.width,canvas.height);
     
     ctx.drawImage(nightstuck.img,nightstuck.x,nightstuck.y);
