@@ -34,7 +34,7 @@ function loadImageRes(name,src){
 
     var img = new Image();
     img.tempsrc=src;
-    img.onload=loadUpdate();
+    img.onload=loadUpdate
     imgs[name] = img;
     
 }
@@ -90,10 +90,10 @@ loadingState.innerHTML="Cargando imágenes"
 function loadUpdate(){
     
     imgsLoaded++
-    percentage.innerHTML=imgsLoaded+"/"+imgsTotal
+    percentage.innerHTML=imgsLoaded+"/"+imgsTotal;
     
     if(imgsLoaded===imgsTotal){
-       
+       if
         loaded();
        
        }
@@ -101,9 +101,33 @@ function loadUpdate(){
 }
 
 function loaded(){
+    console.log("all loaded")
+}
+
+imgs.blur=new Image();
+imgs.blur.onload=function(){
+    
+    ctx.drawImage(imgs.blur);
     
 }
+
+imgs.blur.src="nightstuckblur.png"
+
+loadImageRes("fondo1","fondo1.png");
+
+loadImageRes("fondo2","fondo2.png")
+
+loadImageRes("fuego1","fuego1.png");
+
+loadImageRes("fuego2","fuego2.png");
+
+loadImageRes("nightstuck","nightstuck.png");
+
 loadAudioRes("music","https://comic-quest.github.io/chess/bye-home2.mp3")
+
+
+
+
 
        
        imgsTotal+=Object.keys(imgs).length;
