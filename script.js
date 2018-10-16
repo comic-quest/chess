@@ -141,10 +141,10 @@ function loaded(){
         
         audios.music.play();
         
-        fondo1= new Sprite(imgs.fondo1,-200,0);
-        fondo2= new Sprite(imgs.fondo2,-75,0);
+        fondo1= new Sprite(imgs.fondo1,-400,0);
+        fondo2= new Sprite(imgs.fondo2,0,0);
         nightstuck= new Sprite(imgs.nightstuck,0,0);
-        fuego =new Sprite(imgs.fuego1,-50,0);
+        fuego =new Sprite(imgs.fuego1,0,0);
         
         requestAnimationFrame(main);
         
@@ -154,8 +154,8 @@ function loaded(){
         },1000);
         
         fondo1.tween= TweenLite.to(fondo1, 20, { ease: Power3.easeOut, x: 0 });
-        fondo2.tween= TweenLite.to(fondo2, 20, { ease: Power3.easeOut, x: 0 });
-        fuego.tween= TweenLite.to(fuego, 20, { ease: Power3.easeOut, x: 0 });
+        fondo2.tween= TweenLite.to(fondo2, 20, { ease: Power3.easeOut, x: 125 });
+        fuego.tween= TweenLite.to(fuego, 20, { ease: Power3.easeOut, x: 100 });
         
         
     }
