@@ -1,10 +1,11 @@
 
 
-
+var container=document.getElementById("flash-container")
 var canvas = document.getElementById("flash");
 var ctx = canvas.getContext("2d");
 
-ctx.fillRect(0,0,canvas.width,canvas.height);
+
+
 
 var percentage = document.getElementById("percentage")
 
@@ -47,7 +48,7 @@ function loadAudioRes(name,src){
     
      var r = new XMLHttpRequest();
 r.onload = function() {
-    console.log("yeet")
+  
     audio.src = URL.createObjectURL(r.response);
     loadImages();
    
@@ -93,8 +94,14 @@ function loadUpdate(){
     percentage.innerHTML=imgsLoaded+"/"+imgsTotal;
     
     if(imgsLoaded===imgsTotal){
-       if
-        loaded();
+       
+        setTimeout(function(){
+            
+            loaded();
+            
+        },1000);
+        
+        
        
        }
     
@@ -102,16 +109,33 @@ function loadUpdate(){
 
 function loaded(){
     console.log("all loaded")
+    
+    loadingState.innerHTML="Haz click para empezar."
+    
+    percentage.innerHTML="";
+    
+    container.onclick=function(e){
+        loadingState.innerHTML="";
+        ctx.drawImage(imgs.nightstuck,0,0);
+        ctx.drawImage(imgs.fuego1,0,0);
+        ctx.drawImage(imgs.fondo2,0,0);
+        ctx.drawImage(imgs.fondo1,0,0);
+        
+        audios.music.play();
+    }
+    
+    
+    
 }
 
 imgs.blur=new Image();
 imgs.blur.onload=function(){
     
-    ctx.drawImage(imgs.blur);
+   ctx.drawImage(imgs.blur,0,0);
     
-}
+imgsLoaded++
 
-imgs.blur.src="nightstuckblur.png"
+
 
 loadImageRes("fondo1","fondo1.png");
 
@@ -131,5 +155,10 @@ loadAudioRes("music","https://comic-quest.github.io/chess/bye-home2.mp3")
 
        
        imgsTotal+=Object.keys(imgs).length;
+    
+}
+
+imgs.blur.src="nightstuckblur.png"
+
     
     

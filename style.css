@@ -6,13 +6,20 @@ position:relative;
 
 
 #flash{
-    width: 500px;
-    height:700px;
+    width: 560px;
+    height:676px;
 -webkit-border-radius: 10px; 
 -moz-border-radius: 10px;
 border-radius: 10px; 
 overflow: hidden;
 
+}
+
+#flash-container{
+    width:560px;
+    height:676px;
+    position:relative;
+    
 }
 
 #canvas{
@@ -34,7 +41,7 @@ overflow: hidden;
     font-size:40px;
     position:absolute;
         top:120px;
-    width:500px;
+    width:560px;
     left:0px;
     text-align:center;
     color:white;
@@ -46,7 +53,7 @@ overflow: hidden;
     font-size:40px;
     position:absolute;
         top:40px;
-    width:500px;
+    width:560px;
     left:0px;
     text-align:center;
     color:white;
